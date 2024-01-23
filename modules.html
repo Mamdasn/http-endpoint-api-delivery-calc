@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Delivery Tools Module &#8212; Delivery Fee Calculator Flask App 1.0.0-alpha documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <script src="_static/documentation_options.js?v=a264681e"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to Delivery Fee Calculator Flask App’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-delivery_tools">
+<span id="delivery-tools-module"></span><h1>Delivery Tools Module<a class="headerlink" href="#module-delivery_tools" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="delivery_tools.delivery_data_integrity_check">
+<span class="sig-prename descclassname"><span class="pre">delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_data_integrity_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delivery_tools.delivery_data_integrity_check" title="Link to this definition">¶</a></dt>
+<dd><p>Check the integrity of delivery data.</p>
+<p>This function ensures that all required fields (<cite>cart_value</cite>, <cite>delivery_distance</cite>,
+<cite>number_of_items</cite>, <cite>time</cite>) are present in the data. It returns <cite>True</cite> if all
+fields are present, <cite>False</cite> otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The order data to be checked.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>True</cite> if all required fields are present, <cite>False</cite> otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="delivery_tools.delivery_fee_calculator">
+<span class="sig-prename descclassname"><span class="pre">delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_fee_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delivery_tools.delivery_fee_calculator" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate the delivery fee based on cart value, delivery distance, number
+of items, and time.</p>
+<dl>
+<dt>The fee is calculated considering various factors:</dt><dd><div class="line-block">
+<div class="line">- Base fee and surcharges for orders below a minimum cart value.</div>
+<div class="line">- Additional fees for delivery distances beyond a base distance.</div>
+<div class="line">- Bulk order surcharges based on the number of items.</div>
+<div class="line">- Special surcharge for Friday rush hours.</div>
+<div class="line">- Maximum cap on the delivery fee and free delivery for high-value carts.</div>
+</div>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The order data containing <cite>cart_value</cite> (int), <cite>delivery_distance</cite> (int),
+<cite>number_of_items</cite> (int), and <cite>time</cite> (ISO 8601 format string).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A dictionary with a single key ‘delivery_fee’ and its calculated value in cents.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="tests-module">
+<h1>Tests Module<a class="headerlink" href="#tests-module" title="Link to this heading">¶</a></h1>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Delivery Fee Calculator Flask App</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Delivery Tools Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_data_integrity_check"><code class="docutils literal notranslate"><span class="pre">delivery_data_integrity_check()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_fee_calculator"><code class="docutils literal notranslate"><span class="pre">delivery_fee_calculator()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#tests-module">Tests Module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Delivery Fee Calculator Flask App’s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Mamdasan Sabrian.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
