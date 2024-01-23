@@ -26,18 +26,20 @@ sys.path.insert(0, tests_root)
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Delivery Fee Calculator Flask App'
-copyright = '2024, Mamdasan Sabrian'
-author = 'Mamdasan Sabrian'
-version = '1.0'
-release = '1.0.0-alpha'
+project = "Delivery Fee Calculator Flask App"
+copyright = "2024, Mamdasan Sabrian"
+author = "Mamdasan Sabrian"
+version = "1.0"
+release = "1.0.0-alpha"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["sphinx.ext.autodoc", ]
+extensions = [
+    "sphinx.ext.autodoc",
+]
 
-templates_path = ['_templates']
+templates_path = ["_templates"]
 exclude_patterns = []
 
 # The suffix of source filenames.
@@ -55,5 +57,5 @@ autodoc_member_order = "bysource"
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_theme = 'alabaster'
-html_static_path = ['_static']
+html_theme = "alabaster"
+html_static_path = ["_static"]
