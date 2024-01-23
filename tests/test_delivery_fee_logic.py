@@ -3,7 +3,7 @@ import unittest
 from delivery_tools import delivery_fee_calculator
 
 
-class DeliveryFeeCalculatorTests(unittest.TestCase):
+class FeeLogicTests(unittest.TestCase):
     def test_fill_10_euro_gap_in_cart_value(self):
         """Test the surcharge calculation for cart values less than 10€."""
         queries = (

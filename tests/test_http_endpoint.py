@@ -4,7 +4,7 @@ import requests
 from requests.exceptions import ConnectionError, Timeout
 
 
-class TestInternetConnection(unittest.TestCase):
+class EndpointTests(unittest.TestCase):
     http_address = "http://0.0.0.0:5000"
 
     def test_connection(self):
