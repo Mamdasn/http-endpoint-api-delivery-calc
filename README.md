@@ -35,3 +35,6 @@ Run the tests using the following command:
 python -m unittest discover -s tests
 ```
 This will execute various test cases defined in `test_delivery_fee.py` and `test_delivery_fee_http_api.py`, evaluating the logic of the delivery fee calculations under different scenarios.
+
+### Documentation
+Documentation built by `sphinx`: [Docs](https://mamdasn.github.io/http-endpoint-api-delivery-calc/)
