@@ -49,6 +49,7 @@ def delivery_fee_calculator(data):
     number_of_items = data.get("number_of_items")
     time = data.get("time")
 
+    # Make the delivery for free if cart value is higher that 200 euros
     if cart_value >= 20000:
         return {"delivery_fee": 0}
 
