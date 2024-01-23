@@ -35,11 +35,15 @@ release = "1.0.0-alpha"
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
+# Enable autodoc extension for automatic documentation generation.
 extensions = [
     "sphinx.ext.autodoc",
 ]
 
+# Specify the location of template files.
 templates_path = ["_templates"]
+
+# Specify any patterns for excluding specific files or directories.
 exclude_patterns = []
 
 # The suffix of source filenames.
