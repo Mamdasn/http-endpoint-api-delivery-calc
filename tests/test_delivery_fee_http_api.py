@@ -1,8 +1,7 @@
-import sys
-import os
+import unittest
+
 import requests
 from requests.exceptions import ConnectionError, Timeout
-import unittest
 
 
 class TestInternetConnection(unittest.TestCase):
@@ -10,7 +9,6 @@ class TestInternetConnection(unittest.TestCase):
 
     def test_connection(self):
         """Test if the HTTP connection to the API is available."""
-        timeout = 5
         try:
             query = {
                 "cart_value": 890,
