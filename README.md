@@ -1,7 +1,7 @@
 # Delivery Fee Calculator Flask App
 
 ## Brief Description
-This Flask application provides an API for calculating delivery fees based on various factors such as cart value, delivery distance, number of items, and time. 
+This Flask application provides an API for calculating delivery fees based on various factors such as cart value, delivery distance, number of items, and time.
 
 ## Usage
 The application exposes an endpoint (`/`) that accepts POST requests with JSON payload containing delivery information. It returns the calculated delivery fee.
