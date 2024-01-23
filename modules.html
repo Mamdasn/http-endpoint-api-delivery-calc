@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Delivery Tools Module &#8212; Delivery Fee Calculator Flask App 1.0.0-alpha documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
-    <script src="_static/documentation_options.js?v=a264681e"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=3f0d0291" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=b0cd2d97" />
+    <script src="_static/documentation_options.js?v=c87a5f98"></script>
     <script src="_static/doctools.js?v=888ff710"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -83,8 +83,112 @@ of items, and time.</p>
 </dd></dl>
 
 </section>
-<section id="tests-module">
-<h1>Tests Module<a class="headerlink" href="#tests-module" title="Link to this heading">¶</a></h1>
+<section id="module-test_delivery_fee_logic">
+<span id="tests-module"></span><h1>Tests Module<a class="headerlink" href="#module-test_delivery_fee_logic" title="Link to this heading">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_delivery_fee_logic.</span></span><span class="sig-name descname"><span class="pre">FeeLogicTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests" title="Link to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_fill_10_euro_gap_in_cart_value">
+<span class="sig-name descname"><span class="pre">test_fill_10_euro_gap_in_cart_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_fill_10_euro_gap_in_cart_value" title="Link to this definition">¶</a></dt>
+<dd><p>Test the surcharge calculation for cart values less than 10€.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_excess_500m_fee">
+<span class="sig-name descname"><span class="pre">test_excess_500m_fee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_excess_500m_fee" title="Link to this definition">¶</a></dt>
+<dd><p>Test additional delivery fees for every 500 meters beyond
+the first 1000 meters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_excess_bulk_fee">
+<span class="sig-name descname"><span class="pre">test_excess_bulk_fee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_excess_bulk_fee" title="Link to this definition">¶</a></dt>
+<dd><p>Test the surcharge for bulk orders based on the number
+of items in the cart.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_15_euro_cap">
+<span class="sig-name descname"><span class="pre">test_15_euro_cap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_15_euro_cap" title="Link to this definition">¶</a></dt>
+<dd><p>Test the maximum delivery fee cap of 15€, including surcharges.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_200_euro_free_delivery">
+<span class="sig-name descname"><span class="pre">test_200_euro_free_delivery</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_200_euro_free_delivery" title="Link to this definition">¶</a></dt>
+<dd><p>Test free delivery for cart values equal to or exceeding 200€.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_friday_rush">
+<span class="sig-name descname"><span class="pre">test_friday_rush</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_friday_rush" title="Link to this definition">¶</a></dt>
+<dd><p>Test increased delivery fees during the Friday rush
+hours (3 - 7 PM UTC).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.check_delivery_fee">
+<span class="sig-name descname"><span class="pre">check_delivery_fee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_delivery_fees</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.check_delivery_fee" title="Link to this definition">¶</a></dt>
+<dd><p>Test all the queries and expected fees with the
+delivery fee calculator library.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class" id="module-test_http_endpoint">
+<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_http_endpoint.</span></span><span class="sig-name descname"><span class="pre">EndpointTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests" title="Link to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_connection">
+<span class="sig-name descname"><span class="pre">test_connection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_connection" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the HTTP connection to the API is available.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_fill_10_euro_gap_in_cart_value">
+<span class="sig-name descname"><span class="pre">test_fill_10_euro_gap_in_cart_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_fill_10_euro_gap_in_cart_value" title="Link to this definition">¶</a></dt>
+<dd><p>Test the surcharge calculation for cart values less than 10€.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_excess_500m_fee">
+<span class="sig-name descname"><span class="pre">test_excess_500m_fee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_excess_500m_fee" title="Link to this definition">¶</a></dt>
+<dd><p>Test additional delivery fees for every 500 meters beyond the first 1000 meters.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_excess_bulk_fee">
+<span class="sig-name descname"><span class="pre">test_excess_bulk_fee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_excess_bulk_fee" title="Link to this definition">¶</a></dt>
+<dd><p>Test the surcharge for bulk orders based on the number of items in the cart.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_15_euro_cap">
+<span class="sig-name descname"><span class="pre">test_15_euro_cap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_15_euro_cap" title="Link to this definition">¶</a></dt>
+<dd><p>Test the maximum delivery fee cap of 15€, including surcharges.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_200_euro_free_delivery">
+<span class="sig-name descname"><span class="pre">test_200_euro_free_delivery</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_200_euro_free_delivery" title="Link to this definition">¶</a></dt>
+<dd><p>Test free delivery for cart values equal to or exceeding 200€.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_friday_rush">
+<span class="sig-name descname"><span class="pre">test_friday_rush</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_friday_rush" title="Link to this definition">¶</a></dt>
+<dd><p>Test increased delivery fees during the Friday rush hours (3 - 7 PM UTC).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.check_delivery_fee">
+<span class="sig-name descname"><span class="pre">check_delivery_fee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_delivery_fees</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.check_delivery_fee" title="Link to this definition">¶</a></dt>
+<dd><p>Test all the queries and expected fees with the http response.</p>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -111,7 +215,11 @@ of items, and time.</p>
 <li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_fee_calculator"><code class="docutils literal notranslate"><span class="pre">delivery_fee_calculator()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#tests-module">Tests Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-test_delivery_fee_logic">Tests Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#test_delivery_fee_logic.FeeLogicTests"><code class="docutils literal notranslate"><span class="pre">FeeLogicTests</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test_http_endpoint.EndpointTests"><code class="docutils literal notranslate"><span class="pre">EndpointTests</span></code></a></li>
+</ul>
+</li>
 </ul>
 
 <div class="relations">
