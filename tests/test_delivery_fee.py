@@ -18,7 +18,8 @@ class DeliveryFeeCalculatorTests(unittest.TestCase):
         self.check_delivery_fee(queries, expected_delivery_fees)
 
     def test_excess_500m_fee(self):
-        """Test additional delivery fees for every 500 meters beyond the first 1000 meters."""
+        """Test additional delivery fees for every 500 meters beyond
+        the first 1000 meters."""
         queries = (
             {
                 "cart_value": 1000,
@@ -50,7 +51,8 @@ class DeliveryFeeCalculatorTests(unittest.TestCase):
         self.check_delivery_fee(queries, expected_delivery_fees)
 
     def test_excess_bulk_fee(self):
-        """Test the surcharge for bulk orders based on the number of items in the cart."""
+        """Test the surcharge for bulk orders based on the number
+        of items in the cart."""
         queries = (
             {
                 "cart_value": 1000,
@@ -128,7 +130,8 @@ class DeliveryFeeCalculatorTests(unittest.TestCase):
         self.check_delivery_fee(queries, expected_delivery_fees)
 
     def test_friday_rush(self):
-        """Test increased delivery fees during the Friday rush hours (3 - 7 PM UTC)."""
+        """Test increased delivery fees during the Friday rush
+        hours (3 - 7 PM UTC)."""
         queries = (
             {
                 "cart_value": 1000,
@@ -153,7 +156,8 @@ class DeliveryFeeCalculatorTests(unittest.TestCase):
         self.check_delivery_fee(queries, expected_delivery_fees)
 
     def check_delivery_fee(self, queries, expected_delivery_fees):
-        """Test all the queries and expected fees with the delivery fee calculator library."""
+        """Test all the queries and expected fees with the
+        delivery fee calculator library."""
         for query, expected_delivery_fee in zip(queries, expected_delivery_fees):
             delivery_fee = delivery_fee_calculator(query)
             self.assertEqual(delivery_fee.get("delivery_fee"), expected_delivery_fee)

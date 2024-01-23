@@ -6,8 +6,10 @@ def delivery_data_integrity_check(data):
     """
     Check the integrity of delivery data.
 
-    Ensures that all required fields (cart_value, delivery_distance, number_of_items, time)
-    are present in the data. Returns True if all fields are present, False otherwise.
+    Ensures that all required fields (cart_value, delivery_distance
+    number_of_items, time)
+    are present in the data. Returns True if all fields are present
+    False otherwise.
 
     Parameters:
     data (dict): The order data to be checked.
@@ -15,13 +17,19 @@ def delivery_data_integrity_check(data):
     Returns:
     bool: True if all required fields are present, False otherwise.
     """
-    keys_to_check = ["cart_value", "delivery_distance", "number_of_items", "time"]
+    keys_to_check = [
+        "cart_value",
+        "delivery_distance",
+        "number_of_items",
+        "time",
+    ]
     return all(data.get(key, False) for key in keys_to_check)
 
 
 def delivery_fee_calculator(data):
     """
-    Calculate the delivery fee based on cart value, delivery distance, number of items, and time.
+    Calculate the delivery fee based on cart value, delivery distance, number
+    of items, and time.
 
     The fee is calculated considering various factors:
     - Base fee and surcharges for orders below a minimum cart value.
@@ -31,11 +39,13 @@ def delivery_fee_calculator(data):
     - Maximum cap on the delivery fee and free delivery for high-value carts.
 
     Parameters:
-    data (dict): The order data containing cart_value (int), delivery_distance (int),
+    data (dict): The order data containing cart_value (int),
+                 delivery_distance (int),
                  number_of_items (int), and time (ISO 8601 format string).
 
     Returns:
-    dict: A dictionary with a single key 'delivery_fee' and its calculated value in cents.
+    dict: A dictionary with a single key 'delivery_fee' and its
+          calculated value in cents.
     """
     cart_value = data.get("cart_value")
     delivery_distance = data.get("delivery_distance")
