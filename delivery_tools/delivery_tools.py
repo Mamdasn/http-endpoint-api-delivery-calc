@@ -12,6 +12,7 @@ def delivery_data_integrity_check(data):
 
     :param data: The order data to be checked.
     :type data: dict
+
     :return: `True` if all required fields are present, `False` otherwise.
     :rtype: bool
     """
@@ -39,6 +40,7 @@ def delivery_fee_calculator(data):
     :param data: The order data containing `cart_value` (int), `delivery_distance` (int),
                  `number_of_items` (int), and `time` (ISO 8601 format string).
     :type data: dict
+
     :return: A dictionary with a single key 'delivery_fee' and its calculated value in cents.
     :rtype: dict
     """
