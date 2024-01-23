@@ -1,5 +1,6 @@
-from delivery_tools import delivery_data_integrity_check, delivery_fee_calculator
 from flask import Flask, jsonify, request
+
+from delivery_tools import delivery_data_integrity_check, delivery_fee_calculator
 
 app = Flask(__name__)
 
