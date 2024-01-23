@@ -12,7 +12,9 @@ def get_data():
         return (
             jsonify(
                 {
-                    "Error": "Incorrect input. Your data query should have the following fields: cart_value, delivery_distance, number_of_items and time"
+                    "Error": "Incorrect input. Your data query should \
+                     have the following fields: \
+                     cart_value, delivery_distance, number_of_items and time"
                 }
             ),
             400,
