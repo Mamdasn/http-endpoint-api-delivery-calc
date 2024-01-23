@@ -6,16 +6,14 @@ def delivery_data_integrity_check(data):
     """
     Check the integrity of delivery data.
 
-    Ensures that all required fields (cart_value, delivery_distance
-    number_of_items, time)
-    are present in the data. Returns True if all fields are present
-    False otherwise.
+    This function ensures that all required fields (`cart_value`, `delivery_distance`,
+    `number_of_items`, `time`) are present in the data. It returns `True` if all
+    fields are present, `False` otherwise.
 
-    Parameters:
-    data (dict): The order data to be checked.
-
-    Returns:
-    bool: True if all required fields are present, False otherwise.
+    :param data: The order data to be checked.
+    :type data: dict
+    :return: `True` if all required fields are present, `False` otherwise.
+    :rtype: bool
     """
     keys_to_check = [
         "cart_value",
@@ -32,20 +30,17 @@ def delivery_fee_calculator(data):
     of items, and time.
 
     The fee is calculated considering various factors:
-    - Base fee and surcharges for orders below a minimum cart value.
-    - Additional fees for delivery distances beyond a base distance.
-    - Bulk order surcharges based on the number of items.
-    - Special surcharge for Friday rush hours.
-    - Maximum cap on the delivery fee and free delivery for high-value carts.
+        | - Base fee and surcharges for orders below a minimum cart value.
+        | - Additional fees for delivery distances beyond a base distance.
+        | - Bulk order surcharges based on the number of items.
+        | - Special surcharge for Friday rush hours.
+        | - Maximum cap on the delivery fee and free delivery for high-value carts.
 
-    Parameters:
-    data (dict): The order data containing cart_value (int),
-                 delivery_distance (int),
-                 number_of_items (int), and time (ISO 8601 format string).
-
-    Returns:
-    dict: A dictionary with a single key 'delivery_fee' and its
-          calculated value in cents.
+    :param data: The order data containing `cart_value` (int), `delivery_distance` (int),
+                 `number_of_items` (int), and `time` (ISO 8601 format string).
+    :type data: dict
+    :return: A dictionary with a single key 'delivery_fee' and its calculated value in cents.
+    :rtype: dict
     """
     cart_value = data.get("cart_value")
     delivery_distance = data.get("delivery_distance")
