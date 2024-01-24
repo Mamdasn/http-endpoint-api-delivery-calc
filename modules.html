@@ -112,35 +112,35 @@ rush hours (3 - 7 PM UTC).</div>
 </dl>
 <p>The <cite>check_delivery_fee</cite> method is used to test all the queries and their
 expected fees with the delivery fee calculator library.</p>
-<p>Attributes:
-- <cite>delivery_fee_calculator</cite>: The function used to calculate delivery fees.</p>
 </dd></dl>
 
 <dl class="py class" id="module-test_http_endpoint">
 <dt class="sig sig-object py" id="test_http_endpoint.EndpointTests">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_http_endpoint.</span></span><span class="sig-name descname"><span class="pre">EndpointTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests" title="Link to this definition">¶</a></dt>
-<dd><p>Test the endpoint’s connection and query integrity in addition to
-all the tests of FeeLogicTests and comparing the results with the
-endpoint JSON response.</p>
+<dd><p>Test the endpoint’s connection and query integrity with the API.</p>
 <p>This test class inherits from <cite>FeeLogicTests</cite> and focuses on testing
 the HTTP connection to the API and the integrity of query parameters.</p>
-<p>Test Methods:
-- <cite>test_connection</cite>: Test if the HTTP connection to the API is available.</p>
-<blockquote>
-<div><p>It sends a valid query to the API and checks if the response status code
-indicates a successful connection. It also handles connection errors.</p>
-</div></blockquote>
-<ul class="simple">
-<li><p><cite>test_query_integrity</cite>: Test if the HTTP endpoint aborts connection when
+<dl>
+<dt>Inherits From:</dt><dd><div class="line-block">
+<div class="line">- <cite>FeeLogicTests</cite>: A base test class containing logic tests related
+to delivery fee calculations.</div>
+</div>
+</dd>
+<dt>Test Methods:</dt><dd><div class="line-block">
+<div class="line">- <cite>test_connection</cite>: Test if the HTTP connection to the API is available.
+It sends a valid query to the API and checks if the response status code
+indicates a successful connection. It also handles connection errors.</div>
+</div>
+<div class="line-block">
+<div class="line">- <cite>test_query_integrity</cite>: Test if the HTTP endpoint aborts connection when
 required parameters in the query are not satisfied. It sends an invalid
 query to the API and checks if the response status code indicates a
-rejection due to invalid parameters.</p></li>
-<li><p><cite>check_delivery_fee</cite>: Test all the queries and expected fees with the
-HTTP response. This method is used to validate the delivery fees returned
-by the API for various queries.</p></li>
-</ul>
-<p>Attributes:
-- <cite>http_address</cite>: The base URL of the HTTP endpoint to be tested.</p>
+rejection due to invalid parameters.</div>
+</div>
+</dd>
+</dl>
+<p>The <cite>check_delivery_fee</cite> method is used to test all the queries and their
+expected fees with the response of the http endpoint.</p>
 </dd></dl>
 
 </section>
