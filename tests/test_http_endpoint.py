@@ -24,6 +24,16 @@ class EndpointTests(unittest.TestCase):
         except (ConnectionError, Timeout):
             self.fail("No internet connection.")
 
+    def test_query_integrity(self):
+        """Test if the HTTP endpoint aborts connection when required parameters in the query are not satisfied."""
+        query = {
+            "no params": True,
+        }
+        response = requests.post(self.http_address, json=query)
+
+        # Check if the request was aborted
+        self.assertTrue(response.status_code == 400, "Invalid query parameters")
+
     def test_fill_10_euro_gap_in_cart_value(self):
         """Test the surcharge calculation for cart values less than 10€."""
         queries = (
