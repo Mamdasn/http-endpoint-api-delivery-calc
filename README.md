@@ -32,7 +32,7 @@ The `tests` directory contains unit tests for the delivery fee calculation logic
 ### Running Tests
 Run the tests using the following command:
 ```Python
-python -m unittest discover -s tests
+python -m unittest discover -s tests -v
 ```
 This will execute various test cases defined in `test_delivery_fee.py` and `test_delivery_fee_http_api.py`, evaluating the logic of the delivery fee calculations under different scenarios.
 
