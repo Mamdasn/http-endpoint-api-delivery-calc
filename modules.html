@@ -88,75 +88,59 @@ of items, and time.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_delivery_fee_logic.</span></span><span class="sig-name descname"><span class="pre">FeeLogicTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests" title="Link to this definition">¶</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_fill_10_euro_gap_in_cart_value">
-<span class="sig-name descname"><span class="pre">test_fill_10_euro_gap_in_cart_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_fill_10_euro_gap_in_cart_value" title="Link to this definition">¶</a></dt>
-<dd><p>Test the surcharge calculation for cart values less than 10€.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_excess_500m_fee">
-<span class="sig-name descname"><span class="pre">test_excess_500m_fee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_excess_500m_fee" title="Link to this definition">¶</a></dt>
-<dd><p>Test additional delivery fees for every 500 meters beyond
-the first 1000 meters.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_excess_bulk_fee">
-<span class="sig-name descname"><span class="pre">test_excess_bulk_fee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_excess_bulk_fee" title="Link to this definition">¶</a></dt>
-<dd><p>Test the surcharge for bulk orders based on the number
-of items in the cart.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_15_euro_cap">
-<span class="sig-name descname"><span class="pre">test_15_euro_cap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_15_euro_cap" title="Link to this definition">¶</a></dt>
-<dd><p>Test the maximum delivery fee cap of 15€, including surcharges.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_200_euro_free_delivery">
-<span class="sig-name descname"><span class="pre">test_200_euro_free_delivery</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_200_euro_free_delivery" title="Link to this definition">¶</a></dt>
-<dd><p>Test free delivery for cart values equal to or exceeding 200€.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.test_friday_rush">
-<span class="sig-name descname"><span class="pre">test_friday_rush</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.test_friday_rush" title="Link to this definition">¶</a></dt>
-<dd><p>Test increased delivery fees during the Friday rush
-hours (3 - 7 PM UTC).</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_delivery_fee_logic.FeeLogicTests.check_delivery_fee">
-<span class="sig-name descname"><span class="pre">check_delivery_fee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_delivery_fees</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_delivery_fee_logic.FeeLogicTests.check_delivery_fee" title="Link to this definition">¶</a></dt>
-<dd><p>Test all the queries and expected fees with the
-delivery fee calculator library.</p>
-</dd></dl>
-
+<dd><p>Test the logic of the delivery fee calculator.</p>
+<p>This test class contains multiple test methods to verify the behavior
+of the delivery fee calculator. It covers various scenarios, including
+cart value surcharges, distance-based fees, bulk order surcharges,
+maximum fee caps, and special time-based fees.</p>
+<dl>
+<dt>Test Methods:</dt><dd><div class="line-block">
+<div class="line">- <cite>test_fill_10_euro_gap_in_cart_value</cite>: Test surcharge calculation
+for cart values less than 10€.</div>
+<div class="line">- <cite>test_excess_500m_fee</cite>: Test additional delivery fees for every
+500 meters beyond the first 1000 meters.</div>
+<div class="line">- <cite>test_excess_bulk_fee</cite>: Test the surcharge for bulk orders based
+on the number of items in the cart.</div>
+<div class="line">- <cite>test_15_euro_cap</cite>: Test the maximum delivery fee cap of 15€,
+including surcharges.</div>
+<div class="line">- <cite>test_200_euro_free_delivery</cite>: Test free delivery for cart values
+equal to or exceeding 200€.</div>
+<div class="line">- <cite>test_friday_rush</cite>: Test increased delivery fees during the Friday
+rush hours (3 - 7 PM UTC).</div>
+</div>
+</dd>
+</dl>
+<p>The <cite>check_delivery_fee</cite> method is used to test all the queries and their
+expected fees with the delivery fee calculator library.</p>
+<p>Attributes:
+- <cite>delivery_fee_calculator</cite>: The function used to calculate delivery fees.</p>
 </dd></dl>
 
 <dl class="py class" id="module-test_http_endpoint">
 <dt class="sig sig-object py" id="test_http_endpoint.EndpointTests">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">test_http_endpoint.</span></span><span class="sig-name descname"><span class="pre">EndpointTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests" title="Link to this definition">¶</a></dt>
-<dd><dl class="py method">
-<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_connection">
-<span class="sig-name descname"><span class="pre">test_connection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_connection" title="Link to this definition">¶</a></dt>
-<dd><p>Test if the HTTP connection to the API is available.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_query_integrity">
-<span class="sig-name descname"><span class="pre">test_query_integrity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_query_integrity" title="Link to this definition">¶</a></dt>
-<dd><p>Test if the HTTP endpoint aborts connection when required parameters in the query are not satisfied.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.check_delivery_fee">
-<span class="sig-name descname"><span class="pre">check_delivery_fee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_delivery_fees</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.check_delivery_fee" title="Link to this definition">¶</a></dt>
-<dd><p>Test all the queries and expected fees with the http response.</p>
-</dd></dl>
-
+<dd><p>Test the endpoint’s connection and query integrity in addition to
+all the tests of FeeLogicTests and comparing the results with the
+endpoint JSON response.</p>
+<p>This test class inherits from <cite>FeeLogicTests</cite> and focuses on testing
+the HTTP connection to the API and the integrity of query parameters.</p>
+<p>Test Methods:
+- <cite>test_connection</cite>: Test if the HTTP connection to the API is available.</p>
+<blockquote>
+<div><p>It sends a valid query to the API and checks if the response status code
+indicates a successful connection. It also handles connection errors.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p><cite>test_query_integrity</cite>: Test if the HTTP endpoint aborts connection when
+required parameters in the query are not satisfied. It sends an invalid
+query to the API and checks if the response status code indicates a
+rejection due to invalid parameters.</p></li>
+<li><p><cite>check_delivery_fee</cite>: Test all the queries and expected fees with the
+HTTP response. This method is used to validate the delivery fees returned
+by the API for various queries.</p></li>
+</ul>
+<p>Attributes:
+- <cite>http_address</cite>: The base URL of the HTTP endpoint to be tested.</p>
 </dd></dl>
 
 </section>
