@@ -2,31 +2,41 @@ import datetime
 import math
 
 
-def delivery_query_integrity_check(data):
+def delivery_query_integrity_check(data: dict) -> bool:
     """
-    Check the integrity of delivery data.
+    Verifies the integrity of delivery data by checking the presence and type of required fields.
 
-    This function ensures that all required fields (`cart_value`, `delivery_distance`,
-    `number_of_items`, `time`) are present in the data. It returns `True` if all
-    fields are present, `False` otherwise.
+    This function examines the provided `data` dictionary to ensure it contains all necessary keys:
+    `cart_value`, `delivery_distance`, `number_of_items`, and `time`. Additionally, it checks that
+    `cart_value`, `delivery_distance`, and `number_of_items` are integers, and `time` is a string.
+    It returns `True` if all criteria are met, otherwise `False`.
 
-    :param data: The order data to be checked.
-    :type data: dict
+    :param dict data: The order data to be validated. It should be a dictionary with keys
+                      corresponding to the required fields.
 
-    :return: `True` if all required fields are present, `False` otherwise.
+    :return: A boolean indicating whether the data passes the integrity checks. `True` if it does,
+             `False` otherwise.
     :rtype: bool
     """
-    keys_to_check = [
+
+    keys_to_check = (
         "cart_value",
         "delivery_distance",
         "number_of_items",
         "time",
-    ]
+    )
 
-    return all(data.get(key, False) is not False for key in keys_to_check)
+    keys_with_int_values = ("cart_value", "delivery_distance", "number_of_items")
+    check_int_keys = all(isinstance(data.get(key), int) for key in keys_with_int_values)
+    check_str_key = isinstance(data.get("time"), str)
+    check_keys_existence = all(
+        data.get(key, False) is not False for key in keys_to_check
+    )
+
+    return check_keys_existence and check_str_key and check_int_keys
 
 
-def delivery_fee_calculator(data):
+def delivery_fee_calculator(data: dict) -> dict:
     """
     Calculate the delivery fee based on cart value, delivery distance, number
     of items, and time.
@@ -81,7 +91,7 @@ def delivery_fee_calculator(data):
     # Increse the fee by 20% for the Friday rush hour
     day, hour = datetime_utc.strftime("%A"), int(datetime_utc.strftime("%H"))
     if (day == "Friday") and (15 <= hour <= 19):
-        delivery_fee *= 1.2
+        delivery_fee = int(delivery_fee * 1.2)
 
     # Set the delivery fee to 15 Euro cap if the fee exceeds it
     if delivery_fee > 1500:

@@ -27,6 +27,7 @@ class EndpointTests(FeeLogicTests):
     The `check_delivery_fee` method is used to test all the queries and their
     expected fees with the response of the http endpoint.
     """
+
     http_address = "http://0.0.0.0:5000"
 
     def test_connection(self):

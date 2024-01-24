@@ -28,6 +28,7 @@ class FeeLogicTests(unittest.TestCase):
     The `check_delivery_fee` method is used to test all the queries and their
     expected fees with the delivery fee calculator library.
     """
+
     def test_fill_10_euro_gap_in_cart_value(self):
         queries = (
             {
@@ -170,7 +171,7 @@ class FeeLogicTests(unittest.TestCase):
         expected_delivery_fees = (200, 240, 240)
         self.check_delivery_fee(queries, expected_delivery_fees)
 
-    def check_delivery_fee(self, queries, expected_delivery_fees):
+    def check_delivery_fee(self, queries: tuple, expected_delivery_fees: tuple):
         for query, expected_delivery_fee in zip(queries, expected_delivery_fees):
             delivery_fee = delivery_fee_calculator(query)
             self.assertEqual(delivery_fee.get("delivery_fee"), expected_delivery_fee)
