@@ -34,8 +34,8 @@
   <section id="module-delivery_tools">
 <span id="delivery-tools-module"></span><h1>Delivery Tools Module<a class="headerlink" href="#module-delivery_tools" title="Link to this heading">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="delivery_tools.delivery_data_integrity_check">
-<span class="sig-prename descclassname"><span class="pre">delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_data_integrity_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delivery_tools.delivery_data_integrity_check" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="delivery_tools.delivery_query_integrity_check">
+<span class="sig-prename descclassname"><span class="pre">delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_query_integrity_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delivery_tools.delivery_query_integrity_check" title="Link to this definition">¶</a></dt>
 <dd><p>Check the integrity of delivery data.</p>
 <p>This function ensures that all required fields (<cite>cart_value</cite>, <cite>delivery_distance</cite>,
 <cite>number_of_items</cite>, <cite>time</cite>) are present in the data. It returns <cite>True</cite> if all
@@ -146,6 +146,12 @@ delivery fee calculator library.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_query_integrity">
+<span class="sig-name descname"><span class="pre">test_query_integrity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_query_integrity" title="Link to this definition">¶</a></dt>
+<dd><p>Test if the HTTP endpoint aborts connection when required parameters in the query are not satisfied.</p>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_fill_10_euro_gap_in_cart_value">
 <span class="sig-name descname"><span class="pre">test_fill_10_euro_gap_in_cart_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_fill_10_euro_gap_in_cart_value" title="Link to this definition">¶</a></dt>
 <dd><p>Test the surcharge calculation for cart values less than 10€.</p>
@@ -211,7 +217,7 @@ delivery fee calculator library.</p>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Delivery Tools Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_data_integrity_check"><code class="docutils literal notranslate"><span class="pre">delivery_data_integrity_check()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_query_integrity_check"><code class="docutils literal notranslate"><span class="pre">delivery_query_integrity_check()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_fee_calculator"><code class="docutils literal notranslate"><span class="pre">delivery_fee_calculator()</span></code></a></li>
 </ul>
 </li>
