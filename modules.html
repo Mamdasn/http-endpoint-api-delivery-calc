@@ -35,17 +35,20 @@
 <span id="delivery-tools-module"></span><h1>Delivery Tools Module<a class="headerlink" href="#module-delivery_tools" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="delivery_tools.delivery_query_integrity_check">
-<span class="sig-prename descclassname"><span class="pre">delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_query_integrity_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delivery_tools.delivery_query_integrity_check" title="Link to this definition">¶</a></dt>
-<dd><p>Check the integrity of delivery data.</p>
-<p>This function ensures that all required fields (<cite>cart_value</cite>, <cite>delivery_distance</cite>,
-<cite>number_of_items</cite>, <cite>time</cite>) are present in the data. It returns <cite>True</cite> if all
-fields are present, <cite>False</cite> otherwise.</p>
+<span class="sig-prename descclassname"><span class="pre">delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_query_integrity_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#delivery_tools.delivery_query_integrity_check" title="Link to this definition">¶</a></dt>
+<dd><p>Verifies the integrity of delivery data by checking the presence and type of required fields.</p>
+<p>This function examines the provided <cite>data</cite> dictionary to ensure it contains all necessary keys:
+<cite>cart_value</cite>, <cite>delivery_distance</cite>, <cite>number_of_items</cite>, and <cite>time</cite>. Additionally, it checks that
+<cite>cart_value</cite>, <cite>delivery_distance</cite>, and <cite>number_of_items</cite> are integers, and <cite>time</cite> is a string.
+It returns <cite>True</cite> if all criteria are met, otherwise <cite>False</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The order data to be checked.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The order data to be validated. It should be a dictionary with keys
+corresponding to the required fields.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><cite>True</cite> if all required fields are present, <cite>False</cite> otherwise.</p>
+<dd class="field-even"><p>A boolean indicating whether the data passes the integrity checks. <cite>True</cite> if it does,
+<cite>False</cite> otherwise.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -55,7 +58,7 @@ fields are present, <cite>False</cite> otherwise.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="delivery_tools.delivery_fee_calculator">
-<span class="sig-prename descclassname"><span class="pre">delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_fee_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#delivery_tools.delivery_fee_calculator" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_fee_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#delivery_tools.delivery_fee_calculator" title="Link to this definition">¶</a></dt>
 <dd><p>Calculate the delivery fee based on cart value, delivery distance, number
 of items, and time.</p>
 <dl>
