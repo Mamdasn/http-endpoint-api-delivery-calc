@@ -2,7 +2,7 @@ import datetime
 import math
 
 
-def delivery_data_integrity_check(data):
+def delivery_query_integrity_check(data):
     """
     Check the integrity of delivery data.
 
@@ -22,7 +22,8 @@ def delivery_data_integrity_check(data):
         "number_of_items",
         "time",
     ]
-    return all(data.get(key, False) for key in keys_to_check)
+
+    return all(data.get(key, False) is not False for key in keys_to_check)
 
 
 def delivery_fee_calculator(data):
