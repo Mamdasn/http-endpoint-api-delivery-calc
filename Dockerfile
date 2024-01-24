@@ -27,4 +27,4 @@ COPY . .
 EXPOSE 5000
 
 # Specify the command to run on container start
-CMD ["sh", "-c", "gunicorn --bind 0.0.0.0:5000 wsgi:app"]
+CMD ["sh", "-c", "gunicorn -w 1 --bind 0.0.0.0:5000 wsgi:app"]
