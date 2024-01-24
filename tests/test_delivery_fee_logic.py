@@ -4,8 +4,31 @@ from delivery_tools import delivery_fee_calculator
 
 
 class FeeLogicTests(unittest.TestCase):
+    """Test the logic of the delivery fee calculator.
+
+    This test class contains multiple test methods to verify the behavior
+    of the delivery fee calculator. It covers various scenarios, including
+    cart value surcharges, distance-based fees, bulk order surcharges,
+    maximum fee caps, and special time-based fees.
+
+    Test Methods:
+      | - `test_fill_10_euro_gap_in_cart_value`: Test surcharge calculation
+           for cart values less than 10€.
+      | - `test_excess_500m_fee`: Test additional delivery fees for every
+           500 meters beyond the first 1000 meters.
+      | - `test_excess_bulk_fee`: Test the surcharge for bulk orders based
+           on the number of items in the cart.
+      | - `test_15_euro_cap`: Test the maximum delivery fee cap of 15€,
+           including surcharges.
+      | - `test_200_euro_free_delivery`: Test free delivery for cart values
+           equal to or exceeding 200€.
+      | - `test_friday_rush`: Test increased delivery fees during the Friday
+           rush hours (3 - 7 PM UTC).
+
+    The `check_delivery_fee` method is used to test all the queries and their
+    expected fees with the delivery fee calculator library.
+    """
     def test_fill_10_euro_gap_in_cart_value(self):
-        """Test the surcharge calculation for cart values less than 10€."""
         queries = (
             {
                 "cart_value": 890,
@@ -18,8 +41,6 @@ class FeeLogicTests(unittest.TestCase):
         self.check_delivery_fee(queries, expected_delivery_fees)
 
     def test_excess_500m_fee(self):
-        """Test additional delivery fees for every 500 meters beyond
-        the first 1000 meters."""
         queries = (
             {
                 "cart_value": 1000,
@@ -51,8 +72,6 @@ class FeeLogicTests(unittest.TestCase):
         self.check_delivery_fee(queries, expected_delivery_fees)
 
     def test_excess_bulk_fee(self):
-        """Test the surcharge for bulk orders based on the number
-        of items in the cart."""
         queries = (
             {
                 "cart_value": 1000,
@@ -90,7 +109,6 @@ class FeeLogicTests(unittest.TestCase):
         self.check_delivery_fee(queries, expected_delivery_fees)
 
     def test_15_euro_cap(self):
-        """Test the maximum delivery fee cap of 15€, including surcharges."""
         queries = (
             {
                 "cart_value": 1000,
@@ -110,7 +128,6 @@ class FeeLogicTests(unittest.TestCase):
         self.check_delivery_fee(queries, expected_delivery_fees)
 
     def test_200_euro_free_delivery(self):
-        """Test free delivery for cart values equal to or exceeding 200€."""
         queries = (
             {
                 "cart_value": 19999,
@@ -130,8 +147,6 @@ class FeeLogicTests(unittest.TestCase):
         self.check_delivery_fee(queries, expected_delivery_fees)
 
     def test_friday_rush(self):
-        """Test increased delivery fees during the Friday rush
-        hours (3 - 7 PM UTC)."""
         queries = (
             {
                 "cart_value": 1000,
@@ -156,8 +171,6 @@ class FeeLogicTests(unittest.TestCase):
         self.check_delivery_fee(queries, expected_delivery_fees)
 
     def check_delivery_fee(self, queries, expected_delivery_fees):
-        """Test all the queries and expected fees with the
-        delivery fee calculator library."""
         for query, expected_delivery_fee in zip(queries, expected_delivery_fees):
             delivery_fee = delivery_fee_calculator(query)
             self.assertEqual(delivery_fee.get("delivery_fee"), expected_delivery_fee)
