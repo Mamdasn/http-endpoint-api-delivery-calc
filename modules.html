@@ -152,42 +152,6 @@ delivery fee calculator library.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_fill_10_euro_gap_in_cart_value">
-<span class="sig-name descname"><span class="pre">test_fill_10_euro_gap_in_cart_value</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_fill_10_euro_gap_in_cart_value" title="Link to this definition">¶</a></dt>
-<dd><p>Test the surcharge calculation for cart values less than 10€.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_excess_500m_fee">
-<span class="sig-name descname"><span class="pre">test_excess_500m_fee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_excess_500m_fee" title="Link to this definition">¶</a></dt>
-<dd><p>Test additional delivery fees for every 500 meters beyond the first 1000 meters.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_excess_bulk_fee">
-<span class="sig-name descname"><span class="pre">test_excess_bulk_fee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_excess_bulk_fee" title="Link to this definition">¶</a></dt>
-<dd><p>Test the surcharge for bulk orders based on the number of items in the cart.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_15_euro_cap">
-<span class="sig-name descname"><span class="pre">test_15_euro_cap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_15_euro_cap" title="Link to this definition">¶</a></dt>
-<dd><p>Test the maximum delivery fee cap of 15€, including surcharges.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_200_euro_free_delivery">
-<span class="sig-name descname"><span class="pre">test_200_euro_free_delivery</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_200_euro_free_delivery" title="Link to this definition">¶</a></dt>
-<dd><p>Test free delivery for cart values equal to or exceeding 200€.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.test_friday_rush">
-<span class="sig-name descname"><span class="pre">test_friday_rush</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.test_friday_rush" title="Link to this definition">¶</a></dt>
-<dd><p>Test increased delivery fees during the Friday rush hours (3 - 7 PM UTC).</p>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="test_http_endpoint.EndpointTests.check_delivery_fee">
 <span class="sig-name descname"><span class="pre">check_delivery_fee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">queries</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expected_delivery_fees</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#test_http_endpoint.EndpointTests.check_delivery_fee" title="Link to this definition">¶</a></dt>
 <dd><p>Test all the queries and expected fees with the http response.</p>
