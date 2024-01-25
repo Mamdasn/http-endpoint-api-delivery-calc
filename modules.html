@@ -145,12 +145,6 @@ related to delivery fee calculations.</div>
 </div>
 </dd>
 <dt>Test Methods In This Class:</dt><dd><div class="line-block">
-<div class="line">- <cite>test_connection</cite>: Test if the HTTP connection to the API is
-available. It sends a valid query to the API and checks if
-the response status code indicates a successful connection.
-It also handles connection errors.</div>
-</div>
-<div class="line-block">
 <div class="line">- <cite>test_query_integrity</cite>: Test if the HTTP endpoint aborts
 connection when required parameters in the query are not
 satisfied. It sends an invalid query to the API and checks if
@@ -162,6 +156,12 @@ parameters.</div>
 <p>The <cite>check_queries</cite> method is used to check all the queries and their
 expected fees of the inherited test cases with the response of the
 http endpoint.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="tests.test_http_endpoint.EndpointTests.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_http_endpoint.EndpointTests.setUp" title="Link to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
 </dd></dl>
 
 </section>
