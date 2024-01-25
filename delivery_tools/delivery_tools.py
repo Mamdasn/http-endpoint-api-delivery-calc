@@ -36,6 +36,49 @@ def delivery_query_integrity_check(data: dict) -> bool:
     return check_keys_existence and check_str_key and check_int_keys
 
 
+def calculate_surcharges(
+    cart_value: int, delivery_distance: int, number_of_items: int
+) -> int:
+    surcharge = 0
+
+    BASE_FEE_CAP = 1000
+    DISTANCE_THRESHOLD = 1000
+    EXTRA_DISTANCE_THRESHOLD = 500
+    EXTRA_DISTANCE_SURCHARGE = 100
+    BULK_ITEM_THRESHOLD = 5
+    BULK_ITEM_SURCHARGE = 50
+    EXTRA_BULK_THRESHOLD = 12
+    EXTRA_BULK_SURCHARGE = 120
+
+    # Fill the BASE_FEE_CAP gap
+    if cart_value < BASE_FEE_CAP:
+        surcharge += BASE_FEE_CAP - cart_value
+
+    # Increase the delivery fee for excesses of EXTRA_DISTANCE_THRESHOLD above the first DISTANCE_THRESHOLD
+    if delivery_distance > DISTANCE_THRESHOLD:
+        excess_distance = delivery_distance - DISTANCE_THRESHOLD
+        surcharge += (
+            math.ceil(excess_distance / EXTRA_DISTANCE_THRESHOLD)
+            * EXTRA_DISTANCE_SURCHARGE
+        )
+
+    # Add bulk fee per item for no. items more than equal BULK_ITEM_THRESHOLD
+    if number_of_items >= BULK_ITEM_THRESHOLD:
+        surcharge += (number_of_items - BULK_ITEM_THRESHOLD + 1) * BULK_ITEM_SURCHARGE
+
+    # Add an extra bulk fee for no. items more than EXTRA_BULK_THRESHOLD
+    if number_of_items > EXTRA_BULK_THRESHOLD:
+        surcharge += EXTRA_BULK_SURCHARGE
+
+    return surcharge
+
+
+def is_rush_hour(time_str: str) -> bool:
+    datetime_utc = datetime.datetime.fromisoformat(time_str.replace("Z", "+00:00"))
+    day, hour = datetime_utc.strftime("%A"), int(datetime_utc.strftime("%H"))
+    return day == "Friday" and 15 <= hour <= 19
+
+
 def delivery_fee_calculator(data: dict) -> dict:
     """
     Calculate the delivery fee based on cart value, delivery distance, number
@@ -60,41 +103,22 @@ def delivery_fee_calculator(data: dict) -> dict:
     number_of_items = data.get("number_of_items")
     time = data.get("time")
 
+    FREE_DELIVERY_CAP = 20000
+    BASE_DELIVERY_FEE = 200
+    MAX_DELIVERY_FEE = 1500
+    RUSH_HOUR_SURCHARGE_RATE = 1.2
+
     # Make the delivery for free if cart value is higher that 200 euros
-    if cart_value >= 20000:
+    if cart_value >= FREE_DELIVERY_CAP:
         return {"delivery_fee": 0}
 
-    surcharge = 0
-    # Base fee
-    delivery_fee = 200
+    surcharge = calculate_surcharges(cart_value, delivery_distance, number_of_items)
+    # Add in the BASE_DELIVERY_FEE to delivery_fee
+    delivery_fee = BASE_DELIVERY_FEE + surcharge
 
-    # Fill the 10 Euro gap
-    if cart_value < 1000:
-        surcharge = 1000 - cart_value
+    # Increse the fee by 20% for Friday rush hours (15-19)
+    if is_rush_hour(time):
+        delivery_fee *= RUSH_HOUR_SURCHARGE_RATE
 
-    # Increase the delivery fee for each excess 0.5km above the first 1km
-    if delivery_distance > 1000:
-        surcharge += math.ceil((delivery_distance - 1000) / 500) * 100
-
-    # Add bulk fee per item for no. items more than 5
-    if number_of_items >= 5:
-        surcharge += (number_of_items - 4) * 50
-    # Add an extra bulk fee for no. items more than 12
-    if number_of_items > 12:
-        surcharge += 120
-
-    delivery_fee += surcharge
-
-    # Convert ISO 8601 formatted timestamp to UTC formatted timestamp
-    datetime_utc = datetime.datetime.fromisoformat(time.replace("Z", "+00:00"))
-
-    # Increse the fee by 20% for the Friday rush hour
-    day, hour = datetime_utc.strftime("%A"), int(datetime_utc.strftime("%H"))
-    if (day == "Friday") and (15 <= hour <= 19):
-        delivery_fee = int(delivery_fee * 1.2)
-
-    # Set the delivery fee to 15 Euro cap if the fee exceeds it
-    if delivery_fee > 1500:
-        delivery_fee = 1500
-
+    delivery_fee = int(min(delivery_fee, MAX_DELIVERY_FEE))
     return {"delivery_fee": delivery_fee}
