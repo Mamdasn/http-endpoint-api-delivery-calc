@@ -1,14 +1,17 @@
 Delivery Tools Module
 =====================
 
-.. automodule:: delivery_tools
+.. automodule:: delivery_tools.delivery_tools
    :members:
 
 Tests Module
 ============
 
-.. automodule:: test_delivery_fee_logic
+.. automodule:: tests.delivery_fee_test_cases
    :members:
 
-.. automodule:: test_http_endpoint
+.. automodule:: tests.test_delivery_fee_logic
+   :members:
+
+.. automodule:: tests.test_http_endpoint
    :members:

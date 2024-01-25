@@ -12,16 +12,8 @@ import sys
 cwd = os.getcwd()
 # Get the root dir by going back two times
 project_root = os.path.dirname(os.path.dirname(cwd))
-
-# Get the delivery_tools root dir
-delivery_tools_root = os.path.join(project_root, "delivery_tools")
-
-# Get the tests root dir
-tests_root = os.path.join(project_root, "tests")
-
 # Add the root dir to the system path
-sys.path.insert(0, delivery_tools_root)
-sys.path.insert(0, tests_root)
+sys.path.insert(0, project_root)
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
