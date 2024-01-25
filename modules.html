@@ -31,11 +31,11 @@
 
           <div class="body" role="main">
             
-  <section id="module-delivery_tools">
-<span id="delivery-tools-module"></span><h1>Delivery Tools Module<a class="headerlink" href="#module-delivery_tools" title="Link to this heading">¶</a></h1>
+  <section id="module-delivery_tools.delivery_tools">
+<span id="delivery-tools-module"></span><h1>Delivery Tools Module<a class="headerlink" href="#module-delivery_tools.delivery_tools" title="Link to this heading">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="delivery_tools.delivery_query_integrity_check">
-<span class="sig-prename descclassname"><span class="pre">delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_query_integrity_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#delivery_tools.delivery_query_integrity_check" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="delivery_tools.delivery_tools.delivery_query_integrity_check">
+<span class="sig-prename descclassname"><span class="pre">delivery_tools.delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_query_integrity_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#delivery_tools.delivery_tools.delivery_query_integrity_check" title="Link to this definition">¶</a></dt>
 <dd><p>Verifies the integrity of delivery data by checking the presence and type of required fields.</p>
 <p>This function examines the provided <cite>data</cite> dictionary to ensure it contains all necessary keys:
 <cite>cart_value</cite>, <cite>delivery_distance</cite>, <cite>number_of_items</cite>, and <cite>time</cite>. Additionally, it checks that
@@ -57,8 +57,8 @@ corresponding to the required fields.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="delivery_tools.delivery_fee_calculator">
-<span class="sig-prename descclassname"><span class="pre">delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_fee_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#delivery_tools.delivery_fee_calculator" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="delivery_tools.delivery_tools.delivery_fee_calculator">
+<span class="sig-prename descclassname"><span class="pre">delivery_tools.delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_fee_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#delivery_tools.delivery_tools.delivery_fee_calculator" title="Link to this definition">¶</a></dt>
 <dd><p>Calculate the delivery fee based on cart value, delivery distance, number
 of items, and time.</p>
 <dl>
@@ -86,11 +86,11 @@ of items, and time.</p>
 </dd></dl>
 
 </section>
-<section id="module-delivery_fee_test_cases">
-<span id="tests-module"></span><h1>Tests Module<a class="headerlink" href="#module-delivery_fee_test_cases" title="Link to this heading">¶</a></h1>
+<section id="module-tests.delivery_fee_test_cases">
+<span id="tests-module"></span><h1>Tests Module<a class="headerlink" href="#module-tests.delivery_fee_test_cases" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="delivery_fee_test_cases.TestCases">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">delivery_fee_test_cases.</span></span><span class="sig-name descname"><span class="pre">TestCases</span></span><a class="headerlink" href="#delivery_fee_test_cases.TestCases" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.delivery_fee_test_cases.TestCases">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.delivery_fee_test_cases.</span></span><span class="sig-name descname"><span class="pre">TestCases</span></span><a class="headerlink" href="#tests.delivery_fee_test_cases.TestCases" title="Link to this definition">¶</a></dt>
 <dd><p>Test cases for the logic of the delivery fee calculations.</p>
 <p>This class contains multiple test cases to verify the results
 of the delivery fee calculations. It covers various scenarios, including
@@ -115,6 +115,55 @@ the Friday rush hours (3 - 7 PM UTC).</div>
 </dl>
 </dd></dl>
 
+<dl class="py class" id="module-tests.test_delivery_fee_logic">
+<dt class="sig sig-object py" id="tests.test_delivery_fee_logic.FeeLogicTests">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_delivery_fee_logic.</span></span><span class="sig-name descname"><span class="pre">FeeLogicTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_delivery_fee_logic.FeeLogicTests" title="Link to this definition">¶</a></dt>
+<dd><p>This test class inherits from <cite>TestCases</cite> and focuses on testing
+the logic of the delivery fee calculator package.</p>
+<dl>
+<dt>Inherits From:</dt><dd><div class="line-block">
+<div class="line">- <cite>TestCases</cite>: A base test class containing logical test cases
+related to delivery fee calculations.</div>
+</div>
+</dd>
+</dl>
+<p>The <cite>check_queries</cite> method is used to check all the queries and their
+expected fees of the inherited test cases with the results of delivery
+fee calculator library.</p>
+</dd></dl>
+
+<dl class="py class" id="module-tests.test_http_endpoint">
+<dt class="sig sig-object py" id="tests.test_http_endpoint.EndpointTests">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_http_endpoint.</span></span><span class="sig-name descname"><span class="pre">EndpointTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_http_endpoint.EndpointTests" title="Link to this definition">¶</a></dt>
+<dd><p>Test the endpoint’s connection and query integrity with the API.</p>
+<p>This test class inherits from <cite>TestCases</cite> and focuses on testing
+the HTTP connection to the API and the integrity of query parameters.</p>
+<dl>
+<dt>Inherits From:</dt><dd><div class="line-block">
+<div class="line">- <cite>TestCases</cite>: A base test class containing logical test cases
+related to delivery fee calculations.</div>
+</div>
+</dd>
+<dt>Test Methods In This Class:</dt><dd><div class="line-block">
+<div class="line">- <cite>test_connection</cite>: Test if the HTTP connection to the API is
+available. It sends a valid query to the API and checks if
+the response status code indicates a successful connection.
+It also handles connection errors.</div>
+</div>
+<div class="line-block">
+<div class="line">- <cite>test_query_integrity</cite>: Test if the HTTP endpoint aborts
+connection when required parameters in the query are not
+satisfied. It sends an invalid query to the API and checks if
+the response status code indicates a rejection due to invalid
+parameters.</div>
+</div>
+</dd>
+</dl>
+<p>The <cite>check_queries</cite> method is used to check all the queries and their
+expected fees of the inherited test cases with the response of the
+http endpoint.</p>
+</dd></dl>
+
 </section>
 
 
@@ -137,12 +186,14 @@ the Friday rush hours (3 - 7 PM UTC).</div>
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Delivery Tools Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_query_integrity_check"><code class="docutils literal notranslate"><span class="pre">delivery_query_integrity_check()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_fee_calculator"><code class="docutils literal notranslate"><span class="pre">delivery_fee_calculator()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_tools.delivery_query_integrity_check"><code class="docutils literal notranslate"><span class="pre">delivery_query_integrity_check()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_tools.delivery_fee_calculator"><code class="docutils literal notranslate"><span class="pre">delivery_fee_calculator()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#module-delivery_fee_test_cases">Tests Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#delivery_fee_test_cases.TestCases"><code class="docutils literal notranslate"><span class="pre">TestCases</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="#module-tests.delivery_fee_test_cases">Tests Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tests.delivery_fee_test_cases.TestCases"><code class="docutils literal notranslate"><span class="pre">TestCases</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tests.test_delivery_fee_logic.FeeLogicTests"><code class="docutils literal notranslate"><span class="pre">FeeLogicTests</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tests.test_http_endpoint.EndpointTests"><code class="docutils literal notranslate"><span class="pre">EndpointTests</span></code></a></li>
 </ul>
 </li>
 </ul>
