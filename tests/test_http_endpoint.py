@@ -28,7 +28,7 @@ class EndpointTests(FeeLogicTests):
     expected fees with the response of the http endpoint.
     """
 
-    http_address = "http://0.0.0.0:5000"
+    http_address = "http://0.0.0.0:5000/delivery_fee"
 
     def test_connection(self):
         try:
