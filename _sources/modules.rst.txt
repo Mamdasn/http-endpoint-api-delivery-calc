@@ -7,6 +7,9 @@ Delivery Tools Module
 Tests Module
 ============
 
+.. automodule:: delivery_fee_test_cases
+   :members:
+
 .. automodule:: test_delivery_fee_logic
    :members:
 
