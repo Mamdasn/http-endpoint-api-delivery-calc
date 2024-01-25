@@ -14,7 +14,7 @@ def before_request_func():
         abort(400, description="Invalid query parameters")
 
 
-@app.route("/", methods=["POST"])
+@app.route("/delivery_fee", methods=["POST"])
 def get_data():
     data = request.get_json()
     delivery_fee = delivery_fee_calculator(data)
