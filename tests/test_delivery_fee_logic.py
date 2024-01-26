@@ -1,16 +1,16 @@
 import unittest
 
 from delivery_tools import delivery_fee_calculator
-from tests.delivery_fee_test_cases import TestCases
+from tests.delivery_fee_test_cases import DeliveryFeeEdgeCases
 
 
-class FeeLogicTests(unittest.TestCase, TestCases):
+class FeeLogicTests(unittest.TestCase, DeliveryFeeEdgeCases):
     """
-    This test class inherits from `TestCases` and focuses on testing
+    This test class inherits from `DeliveryFeeEdgeCases` and focuses on testing
     the logic of the delivery fee calculator package.
 
     Inherits From:
-      | - `TestCases`: A base test class containing logical test cases
+      | - `DeliveryFeeEdgeCases`: A base test class containing logical test cases
            related to delivery fee calculations.
 
     The `check_queries` method is used to check all the queries and their

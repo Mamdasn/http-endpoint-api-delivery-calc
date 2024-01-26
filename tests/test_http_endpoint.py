@@ -3,18 +3,18 @@ import unittest
 import requests
 from requests.exceptions import ConnectionError, Timeout
 
-from tests.delivery_fee_test_cases import TestCases
+from tests.delivery_fee_test_cases import DeliveryFeeEdgeCases
 
 
-class EndpointTests(unittest.TestCase, TestCases):
+class EndpointTests(unittest.TestCase, DeliveryFeeEdgeCases):
     """
     Test the endpoint's connection and query integrity with the API.
 
-    This test class inherits from `TestCases` and focuses on testing
+    This test class inherits from `DeliveryFeeEdgeCases` and focuses on testing
     the HTTP connection to the API and the integrity of query parameters.
 
     Inherits From:
-      | - `TestCases`: A base test class containing logical test cases
+      | - `DeliveryFeeEdgeCases`: A base test class containing logical test cases
            related to delivery fee calculations.
 
     Test Methods In This Class:
