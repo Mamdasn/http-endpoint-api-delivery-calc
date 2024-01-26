@@ -18,11 +18,6 @@ class EndpointTests(unittest.TestCase, TestCases):
            related to delivery fee calculations.
 
     Test Methods In This Class:
-      | - `test_connection`: Test if the HTTP connection to the API is
-           available. It sends a valid query to the API and checks if
-           the response status code indicates a successful connection.
-           It also handles connection errors.
-
       | - `test_query_integrity`: Test if the HTTP endpoint aborts
            connection when required parameters in the query are not
            satisfied. It sends an invalid query to the API and checks if
@@ -36,7 +31,7 @@ class EndpointTests(unittest.TestCase, TestCases):
 
     http_address = "http://0.0.0.0:5000/delivery_fee"
 
-    def test_connection(self):
+    def _is_there_connection(self):
         try:
             query = {
                 "cart_value": 890,
@@ -45,11 +40,17 @@ class EndpointTests(unittest.TestCase, TestCases):
                 "time": "2024-01-15T13:00:00Z",
             }
             response = requests.post(self.http_address, json=query)
+
             # Check if the request was successful
-            self.assertTrue(
-                response.status_code == 200, "Internet connection available."
-            )
+            return response.status_code == 200
+
         except (ConnectionError, Timeout):
+            return False
+        except Exception as e:
+            self.fail(e)
+
+    def setUp(self):
+        if not self._is_there_connection():
             self.fail("No internet connection.")
 
     def test_query_integrity(self):
