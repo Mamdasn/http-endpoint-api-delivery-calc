@@ -19,7 +19,7 @@ class DeliveryFeeEdgeCases:
       | - `test_200_euro_free_delivery`: Test cases of free delivery
            for cart values equal to or exceeding 200€.
       | - `test_friday_rush`: Test cases of increased delivery fees during
-           the Friday rush hours (3 - 7 PM UTC).
+           the Friday rush hours from 15 to 19 (inclusive).
     """
 
     def test_fill_10_euro_gap_in_cart_value(self):

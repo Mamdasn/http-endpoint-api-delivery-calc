@@ -4,18 +4,23 @@ import math
 
 def delivery_query_integrity_check(data: dict) -> bool:
     """
-    Verifies the integrity of delivery data by checking the presence and type of required fields.
+    Verifies the integrity of delivery data by checking the presence
+    and type of required fields.
 
-    This function examines the provided `data` dictionary to ensure it contains all necessary keys:
-    `cart_value`, `delivery_distance`, `number_of_items`, and `time`. Additionally, it checks that
-    `cart_value`, `delivery_distance`, and `number_of_items` are integers, and `time` is a string.
+    This function examines the provided `data` dictionary to ensure
+    it contains all necessary keys: `cart_value`,
+    `delivery_distance`, `number_of_items`, and `time`.
+
+    Additionally, it checks that `cart_value`, `delivery_distance`,
+    and `number_of_items` are integers, and `time` is a string.
     It returns `True` if all criteria are met, otherwise `False`.
 
-    :param dict data: The order data to be validated. It should be a dictionary with keys
-                      corresponding to the required fields.
+    :param dict data: The order data to be validated. It should be
+                      a dictionary with keys corresponding to the
+                      required fields.
 
-    :return: A boolean indicating whether the data passes the integrity checks. `True` if it does,
-             `False` otherwise.
+    :return: A boolean indicating whether the data passes the
+             integrity checks. `True` if it does, `False` otherwise.
     :rtype: bool
     """
 
@@ -39,6 +44,30 @@ def delivery_query_integrity_check(data: dict) -> bool:
 def calculate_surcharges(
     cart_value: int, delivery_distance: int, number_of_items: int
 ) -> int:
+    """
+    Calculate additional surcharges for a delivery order based on
+    cart value, delivery distance, and number of items.
+
+    This function computes surcharges based on several criteria:
+        | - A surcharge is added to fill the gap if the cart value is
+            below a base fee cap.
+        | - Additional surcharges are applied for delivery distances
+            exceeding certain thresholds.
+        | - Bulk item surcharges are added based on the number of
+            items, with higher surcharges for larger quantities.
+
+    :param cart_value: The total value of the cart in cents.
+    :type cart_value: int
+
+    :param delivery_distance: The delivery distance in meters.
+    :type delivery_distance: int
+
+    :param number_of_items: The number of items in the order.
+    :type number_of_items: int
+
+    :return: The total surcharge amount in cents.
+    :rtype: int
+    """
     surcharge = 0
 
     BASE_FEE_CAP = 1000
@@ -54,7 +83,8 @@ def calculate_surcharges(
     if cart_value < BASE_FEE_CAP:
         surcharge += BASE_FEE_CAP - cart_value
 
-    # Increase the delivery fee for excesses of EXTRA_DISTANCE_THRESHOLD above the first DISTANCE_THRESHOLD
+    # Increase the delivery fee for excesses of EXTRA_DISTANCE_THRESHOLD
+    # above the first DISTANCE_THRESHOLD
     if delivery_distance > DISTANCE_THRESHOLD:
         excess_distance = delivery_distance - DISTANCE_THRESHOLD
         surcharge += (
@@ -74,6 +104,26 @@ def calculate_surcharges(
 
 
 def is_rush_hour(time_str: str) -> bool:
+    """
+    Determine whether a given time falls within the designated rush
+    hour period.
+
+    This function checks if the specified time is within the rush
+    hour window on a specific day of the week.
+
+    Rush hour details:
+        | - Rush hour is defined as being between 15:00 and 19:00
+            (inclusive) on Fridays.
+        | - The time is evaluated in UTC.
+
+    :param time_str: The time in ISO 8601 format string, assumed to
+                     be in UTC.
+    :type time_str: str
+
+    :return: True if the time is within the rush hour period, False
+             otherwise.
+    :rtype: bool
+    """
     datetime_utc = datetime.datetime.fromisoformat(time_str.replace("Z", "+00:00"))
     day, hour = datetime_utc.strftime("%A"), int(datetime_utc.strftime("%H"))
     return day == "Friday" and 15 <= hour <= 19
@@ -81,21 +131,36 @@ def is_rush_hour(time_str: str) -> bool:
 
 def delivery_fee_calculator(data: dict) -> dict:
     """
-    Calculate the delivery fee based on cart value, delivery distance, number
-    of items, and time.
+    Calculate the total delivery fee for an order, incorporating
+    various surcharges and special conditions.
 
-    The fee is calculated considering various factors:
-        | - Base fee and surcharges for orders below a minimum cart value.
-        | - Additional fees for delivery distances beyond a base distance.
-        | - Bulk order surcharges based on the number of items.
-        | - Special surcharge for Friday rush hours.
-        | - Maximum cap on the delivery fee and free delivery for high-value carts.
+    This function integrates multiple components to calculate the
+    final delivery fee.
 
-    :param data: The order data containing `cart_value` (int), `delivery_distance` (int),
-                 `number_of_items` (int), and `time` (ISO 8601 format string).
+    Used Methods:
+        | - It leverages the `calculate_surcharges` function to
+            assess additional costs based on cart value, delivery
+            distance, and item count.
+        | - Utilizes the `is_rush_hour` function to identify and
+            apply a surcharge for deliveries during rush hour
+            periods.
+
+    The calculation process involves:
+        | - Determining if the order qualifies for free delivery
+            based on cart value.
+        | - Calculating surcharges for distance and bulk items.
+        | - Applying a rush hour surcharge if applicable.
+        | - Ensuring the total delivery fee does not exceed the
+            maximum cap.
+
+    :param data: The order data containing `cart_value` (int),
+                 `delivery_distance` (int),
+                 `number_of_items` (int), and `time` (ISO 8601
+                 format string).
     :type data: dict
 
-    :return: A dictionary with a single key 'delivery_fee' and its calculated value in cents.
+    :return: A dictionary with a single key 'delivery_fee' and its
+             calculated value in cents.
     :rtype: dict
     """
     cart_value = data.get("cart_value")
