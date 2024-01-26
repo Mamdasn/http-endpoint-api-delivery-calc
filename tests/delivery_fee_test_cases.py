@@ -1,4 +1,4 @@
-class TestCases:
+class DeliveryFeeEdgeCases:
     """
     Test cases for the logic of the delivery fee calculations.
 
