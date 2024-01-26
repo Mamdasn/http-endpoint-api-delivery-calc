@@ -36,19 +36,86 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="delivery_tools.delivery_tools.delivery_query_integrity_check">
 <span class="sig-prename descclassname"><span class="pre">delivery_tools.delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_query_integrity_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#delivery_tools.delivery_tools.delivery_query_integrity_check" title="Link to this definition">¶</a></dt>
-<dd><p>Verifies the integrity of delivery data by checking the presence and type of required fields.</p>
-<p>This function examines the provided <cite>data</cite> dictionary to ensure it contains all necessary keys:
-<cite>cart_value</cite>, <cite>delivery_distance</cite>, <cite>number_of_items</cite>, and <cite>time</cite>. Additionally, it checks that
-<cite>cart_value</cite>, <cite>delivery_distance</cite>, and <cite>number_of_items</cite> are integers, and <cite>time</cite> is a string.
+<dd><p>Verifies the integrity of delivery data by checking the presence
+and type of required fields.</p>
+<p>This function examines the provided <cite>data</cite> dictionary to ensure
+it contains all necessary keys: <cite>cart_value</cite>,
+<cite>delivery_distance</cite>, <cite>number_of_items</cite>, and <cite>time</cite>.</p>
+<p>Additionally, it checks that <cite>cart_value</cite>, <cite>delivery_distance</cite>,
+and <cite>number_of_items</cite> are integers, and <cite>time</cite> is a string.
 It returns <cite>True</cite> if all criteria are met, otherwise <cite>False</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The order data to be validated. It should be a dictionary with keys
-corresponding to the required fields.</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The order data to be validated. It should be
+a dictionary with keys corresponding to the
+required fields.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A boolean indicating whether the data passes the integrity checks. <cite>True</cite> if it does,
-<cite>False</cite> otherwise.</p>
+<dd class="field-even"><p>A boolean indicating whether the data passes the
+integrity checks. <cite>True</cite> if it does, <cite>False</cite> otherwise.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="delivery_tools.delivery_tools.calculate_surcharges">
+<span class="sig-prename descclassname"><span class="pre">delivery_tools.delivery_tools.</span></span><span class="sig-name descname"><span class="pre">calculate_surcharges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cart_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delivery_distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#delivery_tools.delivery_tools.calculate_surcharges" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate additional surcharges for a delivery order based on
+cart value, delivery distance, and number of items.</p>
+<dl>
+<dt>This function computes surcharges based on several criteria:</dt><dd><div class="line-block">
+<div class="line">- A surcharge is added to fill the gap if the cart value is
+below a base fee cap.</div>
+<div class="line">- Additional surcharges are applied for delivery distances
+exceeding certain thresholds.</div>
+<div class="line">- Bulk item surcharges are added based on the number of
+items, with higher surcharges for larger quantities.</div>
+</div>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cart_value</strong> (<em>int</em>) – The total value of the cart in cents.</p></li>
+<li><p><strong>delivery_distance</strong> (<em>int</em>) – The delivery distance in meters.</p></li>
+<li><p><strong>number_of_items</strong> (<em>int</em>) – The number of items in the order.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The total surcharge amount in cents.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="delivery_tools.delivery_tools.is_rush_hour">
+<span class="sig-prename descclassname"><span class="pre">delivery_tools.delivery_tools.</span></span><span class="sig-name descname"><span class="pre">is_rush_hour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time_str</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#delivery_tools.delivery_tools.is_rush_hour" title="Link to this definition">¶</a></dt>
+<dd><p>Determine whether a given time falls within the designated rush
+hour period.</p>
+<p>This function checks if the specified time is within the rush
+hour window on a specific day of the week.</p>
+<dl>
+<dt>Rush hour details:</dt><dd><div class="line-block">
+<div class="line">- Rush hour is defined as being between 15:00 and 19:00
+(inclusive) on Fridays.</div>
+<div class="line">- The time is evaluated in UTC.</div>
+</div>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>time_str</strong> (<em>str</em>) – The time in ISO 8601 format string, assumed to
+be in UTC.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the time is within the rush hour period, False
+otherwise.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -59,25 +126,40 @@ corresponding to the required fields.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="delivery_tools.delivery_tools.delivery_fee_calculator">
 <span class="sig-prename descclassname"><span class="pre">delivery_tools.delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_fee_calculator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#delivery_tools.delivery_tools.delivery_fee_calculator" title="Link to this definition">¶</a></dt>
-<dd><p>Calculate the delivery fee based on cart value, delivery distance, number
-of items, and time.</p>
+<dd><p>Calculate the total delivery fee for an order, incorporating
+various surcharges and special conditions.</p>
+<p>This function integrates multiple components to calculate the
+final delivery fee.</p>
 <dl>
-<dt>The fee is calculated considering various factors:</dt><dd><div class="line-block">
-<div class="line">- Base fee and surcharges for orders below a minimum cart value.</div>
-<div class="line">- Additional fees for delivery distances beyond a base distance.</div>
-<div class="line">- Bulk order surcharges based on the number of items.</div>
-<div class="line">- Special surcharge for Friday rush hours.</div>
-<div class="line">- Maximum cap on the delivery fee and free delivery for high-value carts.</div>
+<dt>Used Methods:</dt><dd><div class="line-block">
+<div class="line">- It leverages the <cite>calculate_surcharges</cite> function to
+assess additional costs based on cart value, delivery
+distance, and item count.</div>
+<div class="line">- Utilizes the <cite>is_rush_hour</cite> function to identify and
+apply a surcharge for deliveries during rush hour
+periods.</div>
+</div>
+</dd>
+<dt>The calculation process involves:</dt><dd><div class="line-block">
+<div class="line">- Determining if the order qualifies for free delivery
+based on cart value.</div>
+<div class="line">- Calculating surcharges for distance and bulk items.</div>
+<div class="line">- Applying a rush hour surcharge if applicable.</div>
+<div class="line">- Ensuring the total delivery fee does not exceed the
+maximum cap.</div>
 </div>
 </dd>
 </dl>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The order data containing <cite>cart_value</cite> (int), <cite>delivery_distance</cite> (int),
-<cite>number_of_items</cite> (int), and <cite>time</cite> (ISO 8601 format string).</p>
+<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The order data containing <cite>cart_value</cite> (int),
+<cite>delivery_distance</cite> (int),
+<cite>number_of_items</cite> (int), and <cite>time</cite> (ISO 8601
+format string).</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A dictionary with a single key ‘delivery_fee’ and its calculated value in cents.</p>
+<dd class="field-even"><p>A dictionary with a single key ‘delivery_fee’ and its
+calculated value in cents.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dict</p>
@@ -89,8 +171,8 @@ of items, and time.</p>
 <section id="module-tests.delivery_fee_test_cases">
 <span id="tests-module"></span><h1>Tests Module<a class="headerlink" href="#module-tests.delivery_fee_test_cases" title="Link to this heading">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="tests.delivery_fee_test_cases.TestCases">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.delivery_fee_test_cases.</span></span><span class="sig-name descname"><span class="pre">TestCases</span></span><a class="headerlink" href="#tests.delivery_fee_test_cases.TestCases" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="tests.delivery_fee_test_cases.DeliveryFeeEdgeCases">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.delivery_fee_test_cases.</span></span><span class="sig-name descname"><span class="pre">DeliveryFeeEdgeCases</span></span><a class="headerlink" href="#tests.delivery_fee_test_cases.DeliveryFeeEdgeCases" title="Link to this definition">¶</a></dt>
 <dd><p>Test cases for the logic of the delivery fee calculations.</p>
 <p>This class contains multiple test cases to verify the results
 of the delivery fee calculations. It covers various scenarios, including
@@ -109,7 +191,7 @@ of 15€, including surcharges.</div>
 <div class="line">- <cite>test_200_euro_free_delivery</cite>: Test cases of free delivery
 for cart values equal to or exceeding 200€.</div>
 <div class="line">- <cite>test_friday_rush</cite>: Test cases of increased delivery fees during
-the Friday rush hours (3 - 7 PM UTC).</div>
+the Friday rush hours from 15 to 19 (inclusive).</div>
 </div>
 </dd>
 </dl>
@@ -118,11 +200,11 @@ the Friday rush hours (3 - 7 PM UTC).</div>
 <dl class="py class" id="module-tests.test_delivery_fee_logic">
 <dt class="sig sig-object py" id="tests.test_delivery_fee_logic.FeeLogicTests">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_delivery_fee_logic.</span></span><span class="sig-name descname"><span class="pre">FeeLogicTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_delivery_fee_logic.FeeLogicTests" title="Link to this definition">¶</a></dt>
-<dd><p>This test class inherits from <cite>TestCases</cite> and focuses on testing
+<dd><p>This test class inherits from <cite>DeliveryFeeEdgeCases</cite> and focuses on testing
 the logic of the delivery fee calculator package.</p>
 <dl>
 <dt>Inherits From:</dt><dd><div class="line-block">
-<div class="line">- <cite>TestCases</cite>: A base test class containing logical test cases
+<div class="line">- <cite>DeliveryFeeEdgeCases</cite>: A base test class containing logical test cases
 related to delivery fee calculations.</div>
 </div>
 </dd>
@@ -136,11 +218,11 @@ fee calculator library.</p>
 <dt class="sig sig-object py" id="tests.test_http_endpoint.EndpointTests">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tests.test_http_endpoint.</span></span><span class="sig-name descname"><span class="pre">EndpointTests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tests.test_http_endpoint.EndpointTests" title="Link to this definition">¶</a></dt>
 <dd><p>Test the endpoint’s connection and query integrity with the API.</p>
-<p>This test class inherits from <cite>TestCases</cite> and focuses on testing
+<p>This test class inherits from <cite>DeliveryFeeEdgeCases</cite> and focuses on testing
 the HTTP connection to the API and the integrity of query parameters.</p>
 <dl>
 <dt>Inherits From:</dt><dd><div class="line-block">
-<div class="line">- <cite>TestCases</cite>: A base test class containing logical test cases
+<div class="line">- <cite>DeliveryFeeEdgeCases</cite>: A base test class containing logical test cases
 related to delivery fee calculations.</div>
 </div>
 </dd>
@@ -187,11 +269,13 @@ http endpoint.</p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Delivery Tools Module</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_tools.delivery_query_integrity_check"><code class="docutils literal notranslate"><span class="pre">delivery_query_integrity_check()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_tools.calculate_surcharges"><code class="docutils literal notranslate"><span class="pre">calculate_surcharges()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_tools.is_rush_hour"><code class="docutils literal notranslate"><span class="pre">is_rush_hour()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_tools.delivery_fee_calculator"><code class="docutils literal notranslate"><span class="pre">delivery_fee_calculator()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="#module-tests.delivery_fee_test_cases">Tests Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#tests.delivery_fee_test_cases.TestCases"><code class="docutils literal notranslate"><span class="pre">TestCases</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tests.delivery_fee_test_cases.DeliveryFeeEdgeCases"><code class="docutils literal notranslate"><span class="pre">DeliveryFeeEdgeCases</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tests.test_delivery_fee_logic.FeeLogicTests"><code class="docutils literal notranslate"><span class="pre">FeeLogicTests</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tests.test_http_endpoint.EndpointTests"><code class="docutils literal notranslate"><span class="pre">EndpointTests</span></code></a></li>
 </ul>
