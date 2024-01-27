@@ -47,7 +47,7 @@ class EndpointTests(unittest.TestCase, DeliveryFeeEdgeCases):
         except (ConnectionError, Timeout):
             return False
         except Exception as e:
-            self.fail(e)
+            self.fail(f"Test failed due to an exception: {e}")
 
     def setUp(self):
         if not self._is_there_connection():
