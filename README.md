@@ -4,15 +4,15 @@
 This Flask application provides an API for calculating delivery fees based on various factors such as cart value, delivery distance, number of items, and time.
 
 ## Usage
-The application exposes an endpoint (`/`) that accepts POST requests with JSON payload containing delivery information. It returns the calculated delivery fee.
+The application exposes an endpoint (`/delivery_fee`) that accepts POST requests with JSON payload containing delivery information. It returns the calculated delivery fee.
 
 ### Endpoints
-- POST `/`: Accepts a JSON object with `cart_value`, `delivery_distance`, `number_of_items`, and `time`. Returns the calculated delivery fee.
+- POST `/delivery_fee`: Accepts a JSON object with `cart_value`, `delivery_distance`, `number_of_items`, and `time`. Returns the calculated delivery fee.
 
 ## Instructions
 
 ### Prerequisites
-- Python 3.11
+- Python 3.8+
 - Other dependencies in `requirements.txt`
 
 ### Setup and Running Locally
@@ -34,7 +34,9 @@ Run the tests using the following command:
 ```Python
 python -m unittest discover -s tests -v
 ```
-This will execute various test cases defined in `test_delivery_fee.py` and `test_delivery_fee_http_api.py`, evaluating the logic of the delivery fee calculations under different scenarios.
+The implemented tests can also be executed using the `pytest` testing tool.
+
+This will execute various test cases defined in `test_delivery_fee.py` and `test_delivery_fee_http_api.py`, evaluating the logic of the delivery fee calculations and the http endpoint responses under different scenarios.
 
 ## Documentation
 Documentation built by `sphinx`: [Docs](https://mamdasn.github.io/http-endpoint-api-delivery-calc/)
