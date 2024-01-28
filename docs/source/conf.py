@@ -29,6 +29,7 @@ release = "1.0.0-alpha"
 
 # Enable autodoc extension for automatic documentation generation.
 extensions = [
+    "myst_parser",
     "sphinx.ext.autodoc",
 ]
 
