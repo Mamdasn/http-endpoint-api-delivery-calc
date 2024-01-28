@@ -41,11 +41,29 @@
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h2>
 <p>The application exposes an endpoint (<code class="docutils literal notranslate"><span class="pre">/delivery_fee</span></code>) that accepts POST requests with JSON payload containing delivery information. It returns the calculated delivery fee.</p>
-<section id="endpoints">
-<h3>Endpoints<a class="headerlink" href="#endpoints" title="Link to this heading">¶</a></h3>
+<section id="endpoint">
+<h3>Endpoint<a class="headerlink" href="#endpoint" title="Link to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>POST <code class="docutils literal notranslate"><span class="pre">/delivery_fee</span></code>: Accepts a JSON object with <code class="docutils literal notranslate"><span class="pre">cart_value</span></code>, <code class="docutils literal notranslate"><span class="pre">delivery_distance</span></code>, <code class="docutils literal notranslate"><span class="pre">number_of_items</span></code>, and <code class="docutils literal notranslate"><span class="pre">time</span></code>. Returns the calculated delivery fee.</p></li>
 </ul>
+</section>
+<section id="example-query">
+<h3>Example Query<a class="headerlink" href="#example-query" title="Link to this heading">¶</a></h3>
+<p>Example sent query to <code class="docutils literal notranslate"><span class="pre">/delivery_fee</span></code>:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;cart_value&quot;</span><span class="p">:</span> <span class="mi">890</span><span class="p">,</span>
+    <span class="s2">&quot;delivery_distance&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;number_of_items&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="s2">&quot;2024-01-15T13:00:00Z&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">/delivery_fee</span></code>’s response:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;delivery_fee&quot;</span><span class="p">:</span> <span class="mi">310</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 <section id="instructions">
