@@ -8,7 +8,13 @@ Welcome to Delivery Fee Calculator Flask App's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Introduction:
+
+   README.md
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Modules:
 
    modules
 
