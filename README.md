@@ -6,8 +6,25 @@ This Flask application provides an API for calculating delivery fees based on va
 ## Usage
 The application exposes an endpoint (`/delivery_fee`) that accepts POST requests with JSON payload containing delivery information. It returns the calculated delivery fee.
 
-### Endpoints
+### Endpoint
 - POST `/delivery_fee`: Accepts a JSON object with `cart_value`, `delivery_distance`, `number_of_items`, and `time`. Returns the calculated delivery fee.
+
+### Example Query
+Example sent query to `/delivery_fee`:
+```Python
+{
+    "cart_value": 890,
+    "delivery_distance": 1,
+    "number_of_items": 1,
+    "time": "2024-01-15T13:00:00Z",
+}
+```
+`/delivery_fee`'s response:
+```Python
+{
+    "delivery_fee": 310
+}
+```
 
 ## Instructions
 
