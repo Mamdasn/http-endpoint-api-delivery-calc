@@ -18,7 +18,7 @@ sys.path.insert(0, project_root)
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "Delivery Fee Calculator Flask App"
+project = "Delivery Fee Calculator FastAPI App"
 copyright = "2024, Mamdasan Sabrian"
 author = "Mamdasan Sabrian"
 version = "1.0"
