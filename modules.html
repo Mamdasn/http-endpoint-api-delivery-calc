@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Delivery Tools Module &#8212; Delivery Fee Calculator Flask App 1.0.0-alpha documentation</title>
+    <title>Delivery Tools Module &#8212; Delivery Fee Calculator FastAPI App 1.0.0-alpha documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=3f0d0291" />
     <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=b0cd2d97" />
     <script src="_static/documentation_options.js?v=c87a5f98"></script>
@@ -13,7 +13,7 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Delivery Fee Calculator Flask App" href="README.html" />
+    <link rel="prev" title="Delivery Fee Calculator FastAPI App" href="README.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -33,33 +33,6 @@
             
   <section id="module-delivery_tools.delivery_tools">
 <span id="delivery-tools-module"></span><h1>Delivery Tools Module<a class="headerlink" href="#module-delivery_tools.delivery_tools" title="Link to this heading">¶</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="delivery_tools.delivery_tools.delivery_query_integrity_check">
-<span class="sig-prename descclassname"><span class="pre">delivery_tools.delivery_tools.</span></span><span class="sig-name descname"><span class="pre">delivery_query_integrity_check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#delivery_tools.delivery_tools.delivery_query_integrity_check" title="Link to this definition">¶</a></dt>
-<dd><p>Verifies the integrity of delivery data by checking the presence
-and type of required fields.</p>
-<p>This function examines the provided <cite>data</cite> dictionary to ensure
-it contains all necessary keys: <cite>cart_value</cite>,
-<cite>delivery_distance</cite>, <cite>number_of_items</cite>, and <cite>time</cite>.</p>
-<p>Additionally, it checks that <cite>cart_value</cite>, <cite>delivery_distance</cite>,
-and <cite>number_of_items</cite> are integers, and <cite>time</cite> is a string.
-It returns <cite>True</cite> if all criteria are met, otherwise <cite>False</cite>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>dict</em>) – The order data to be validated. It should be
-a dictionary with keys corresponding to the
-required fields.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A boolean indicating whether the data passes the
-integrity checks. <cite>True</cite> if it does, <cite>False</cite> otherwise.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="delivery_tools.delivery_tools.calculate_surcharges">
 <span class="sig-prename descclassname"><span class="pre">delivery_tools.delivery_tools.</span></span><span class="sig-name descname"><span class="pre">calculate_surcharges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cart_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">delivery_distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">number_of_items</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#delivery_tools.delivery_tools.calculate_surcharges" title="Link to this definition">¶</a></dt>
@@ -255,7 +228,7 @@ http endpoint.</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">Delivery Fee Calculator Flask App</a></h1>
+<h1 class="logo"><a href="index.html">Delivery Fee Calculator FastAPI App</a></h1>
 
 
 
@@ -267,12 +240,11 @@ http endpoint.</p>
 <h3>Navigation</h3>
 <p class="caption" role="heading"><span class="caption-text">Introduction:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">Delivery Fee Calculator Flask App</a></li>
+<li class="toctree-l1"><a class="reference internal" href="README.html">Delivery Fee Calculator FastAPI App</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Modules:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Delivery Tools Module</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_tools.delivery_query_integrity_check"><code class="docutils literal notranslate"><span class="pre">delivery_query_integrity_check()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_tools.calculate_surcharges"><code class="docutils literal notranslate"><span class="pre">calculate_surcharges()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_tools.is_rush_hour"><code class="docutils literal notranslate"><span class="pre">is_rush_hour()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#delivery_tools.delivery_tools.delivery_fee_calculator"><code class="docutils literal notranslate"><span class="pre">delivery_fee_calculator()</span></code></a></li>
@@ -290,7 +262,7 @@ http endpoint.</p>
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="README.html" title="previous chapter">Delivery Fee Calculator Flask App</a></li>
+      <li>Previous: <a href="README.html" title="previous chapter">Delivery Fee Calculator FastAPI App</a></li>
   </ul></li>
 </ul>
 </div>
