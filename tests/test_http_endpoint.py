@@ -60,7 +60,7 @@ class EndpointTests(unittest.TestCase, DeliveryFeeEdgeCases):
         response = requests.post(self.http_address, json=query)
 
         # Check if the request was aborted
-        self.assertTrue(response.status_code == 400, "Invalid query parameters")
+        self.assertTrue(response.status_code == 422, "Unprocessable Entity")
 
     def check_queries(self, queries, expected_delivery_fees):
         for query, expected_delivery_fee in zip(queries, expected_delivery_fees):
