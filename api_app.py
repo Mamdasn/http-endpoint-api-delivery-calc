@@ -3,7 +3,7 @@ from datetime import datetime
 import uvicorn
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, field_validator
 
 from delivery_tools import delivery_fee_calculator
 
@@ -29,11 +29,11 @@ class DeliveryRequest(BaseModel):
     number_of_items: int
     time: str
 
-    @validator("time")
-    def validate_time_format(cls, value):
+    @field_validator("time")
+    def validate_time_format(cls, time):
         try:
-            datetime.fromisoformat(value.replace("Z", "+00:00"))
-            return value
+            datetime.fromisoformat(time.replace("Z", "+00:00"))
+            return time
         except ValueError:
             raise ValueError("Time must be a valid ISO format string")
 
