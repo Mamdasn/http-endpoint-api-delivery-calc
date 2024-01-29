@@ -34,10 +34,9 @@ Example Usage:
 """
 
 
-from delivery_tools.delivery_tools import (
-    delivery_fee_calculator,
-    delivery_query_integrity_check,
-)
+from delivery_tools.delivery_tools import delivery_fee_calculator
 
-__all__ = ["delivery_fee_calculator", "delivery_query_integrity_check"]
+__all__ = [
+    "delivery_fee_calculator",
+]
 __version__ = "1.0.0"

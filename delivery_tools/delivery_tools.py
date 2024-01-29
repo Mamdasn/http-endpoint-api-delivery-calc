@@ -2,45 +2,6 @@ import datetime
 import math
 
 
-def delivery_query_integrity_check(data: dict) -> bool:
-    """
-    Verifies the integrity of delivery data by checking the presence
-    and type of required fields.
-
-    This function examines the provided `data` dictionary to ensure
-    it contains all necessary keys: `cart_value`,
-    `delivery_distance`, `number_of_items`, and `time`.
-
-    Additionally, it checks that `cart_value`, `delivery_distance`,
-    and `number_of_items` are integers, and `time` is a string.
-    It returns `True` if all criteria are met, otherwise `False`.
-
-    :param dict data: The order data to be validated. It should be
-                      a dictionary with keys corresponding to the
-                      required fields.
-
-    :return: A boolean indicating whether the data passes the
-             integrity checks. `True` if it does, `False` otherwise.
-    :rtype: bool
-    """
-
-    keys_to_check = (
-        "cart_value",
-        "delivery_distance",
-        "number_of_items",
-        "time",
-    )
-
-    keys_with_int_values = ("cart_value", "delivery_distance", "number_of_items")
-    check_int_keys = all(isinstance(data.get(key), int) for key in keys_with_int_values)
-    check_str_key = isinstance(data.get("time"), str)
-    check_keys_existence = all(
-        data.get(key, False) is not False for key in keys_to_check
-    )
-
-    return check_keys_existence and check_str_key and check_int_keys
-
-
 def calculate_surcharges(
     cart_value: int, delivery_distance: int, number_of_items: int
 ) -> int:
