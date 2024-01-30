@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to Delivery Fee Calculator FastAPI App's documentation!
-=============================================================
+===============================================================
 
 .. toctree::
    :maxdepth: 2
