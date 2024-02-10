@@ -88,7 +88,7 @@
 <ol class="arabic simple">
 <li><p>Clone the repository.</p></li>
 <li><p>Install dependencies: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-r</span> <span class="pre">requirements.txt</span></code>.</p></li>
-<li><p>Run the application: <code class="docutils literal notranslate"><span class="pre">gunicorn</span> <span class="pre">--bind</span> <span class="pre">0.0.0.0:5000</span> <span class="pre">wsgi:app</span></code>.</p></li>
+<li><p>Run the application: <code class="docutils literal notranslate"><span class="pre">uvicorn</span> <span class="pre">--workers</span> <span class="pre">1</span> <span class="pre">--host</span> <span class="pre">0.0.0.0</span> <span class="pre">--port</span> <span class="pre">5000</span> <span class="pre">api_app:app</span></code>.</p></li>
 </ol>
 </section>
 <section id="docker-usage">

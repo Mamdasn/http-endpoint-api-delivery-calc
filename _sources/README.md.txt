@@ -40,7 +40,7 @@ Example sent query to `/delivery_fee`:
 ### Setup and Running Locally
 1. Clone the repository.
 2. Install dependencies: `pip install -r requirements.txt`.
-3. Run the application: `gunicorn --bind 0.0.0.0:5000 wsgi:app`.
+3. Run the application: `uvicorn --workers 1 --host 0.0.0.0 --port 5000 api_app:app`.
 
 ### Docker Usage
 Alternatively, you can build and run this app using Docker:
